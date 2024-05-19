@@ -11,17 +11,17 @@ import Test from './components/Test';
 import Dashboard from './components/Dashboard';
 import withAuth from './routers/Auth';
 import Auth from './routers/Auth';
-import Category from './pages/Category';
-import Item from './pages/Item';
 import NoteState from './context/NoteState';
+import Deposit from './pages/Deposit';
+import WithDraw from './pages/Withdraw';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">        
       <Route element={<Auth />}>
         <Route index element={<Dashboard />} />
-        <Route path="category" element={<Category />} />
-        <Route path="item" element={<Item />} />
+        <Route path="deposite" element={<Deposit />} />
+        <Route path="withdraw" element={<WithDraw />} />
       </Route>
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />

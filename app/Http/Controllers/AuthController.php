@@ -25,6 +25,7 @@ class AuthController extends Controller
         $rules = [
             'name' => 'required|min:3|max:50',
             'email' => 'email|required|string|unique:users,email',
+            'account_type' => 'required|in:Individual,Business',
             'password' => 'min:8|required',
         ];
 

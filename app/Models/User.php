@@ -23,6 +23,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'account_type',
         'password',
     ];
 
@@ -48,12 +49,14 @@ class User extends Authenticatable
 
     public function saveUser($input)
     {
-        if (empty($input['name']) || empty($input['email'])) {
+        if (empty($input['name']) || empty($input['email']) || empty($input['account_type'])) {
             $email_arr = explode('@', $input['user_email']);
             $input['name'] = $email_arr[0];
             $input['email'] = $input['user_email'];
+            $input['account_type'] = $input['account_type'];
         }
         $input['password'] = Hash::make($input['password']);
+        
         $user = $this->create($input);
         $user = $user->fresh();
         return $user;
@@ -63,5 +66,10 @@ class User extends Authenticatable
     public function getUserByEmail(array $input)
     {
         return self::query()->where('email',$input['email'])->first();
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
     }
 }
