@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-# Inventory Management System
+# Banking Management System
 
 Welcome to the Inventory Management System! This project is built using Laravel for the backend and React for the frontend.
 
